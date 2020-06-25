@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.iccgame.sdk.demo">
+
+    <application
+        android:icon="@drawable/icc"
+        android:label="ICC SDK">
+
+        <meta-data android:name="gameId" android:value="baidukey111"/>
+
+
+        <activity
+            android:name="com.iccgame.sdk.demo.MainActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Light.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.iccgame.sdk.demo.WelcomeActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Light.NoTitleBar" />
+
+        <!--  iccgame sdk 请把此段复制您的AndroidManifest.xml中       begin -->
+        <!--"com.iccgame.sdk.ICC_Activity"这个activity的屏幕展示方式，根据游戏的屏幕进行设置
+                                      竖屏显示   android:screenOrientation="portrait"
+                                      横屏显示   android:screenOrientation="landscape"
+        -->
+        <activity
+            android:name="com.iccgame.sdk.ICC_Activity"
+            android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+            android:exported="false"
+            android:screenOrientation="sensor"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="keyboardHidden|navigation|orientation"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden"></activity>
+
+        <receiver android:name="com.iccgame.sdk.ICC_PaymentWeixinReciver">
+            <intent-filter>
+                <action android:name="com.paytend.wxpay.plugin.recive" />
+            </intent-filter>
+        </receiver>
+        <!-- iccgame sdk 请把此段复制您的AndroidManifest.xml中  end -->
+    </application>
+
+    <!-- common 请把此段复制您的AndroidManifest.xml中   begin-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- common 请把此段复制您的AndroidManifest.xml中   end-->
+
+</manifest>
